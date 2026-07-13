@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:pages": "GITHUB_PAGES=true next build && node scripts/prepare-gh-pages.mjs",
-    "deploy:pages": "npm run build:pages && gh-pages -d out -t true",
+    "deploy:pages": "npm run build:pages && gh-pages -d out -t",
     "start": "next start",
     "lint": "eslint"
   },
