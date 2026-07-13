@@ -2,25 +2,66 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --page-padding: 32px;
+  --header-height: 64px;
+  --site-font-mono: "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono",
+    "DejaVu Sans Mono", monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--site-font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--site-font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+.image-zoom {
+  overflow: hidden;
+}
+
+.image-zoom > img,
+.image-zoom > span > img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-zoom:hover > img,
+.image-zoom:hover > span > img {
+  transform: scale(1.03);
+}
+
+.image-zoom-subtle {
+  overflow: hidden;
+}
+
+.image-zoom-subtle > img,
+.image-zoom-subtle > span > img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-zoom-subtle:hover > img,
+.image-zoom-subtle:hover > span > img,
+.group:hover .image-zoom-subtle > img,
+.group:hover .image-zoom-subtle > span > img {
+  transform: scale(1.02);
 }
